@@ -5,7 +5,7 @@
 %}
 
 <div class="portrait-wrapper">
-  <a
+  <a style="margin: 20px 70px"
     {% if page.slug != member.slug %}
       href="{{ member.url | relative_url }}"
     {% endif %}
@@ -28,7 +28,11 @@
             {{ member.name }}
           </span>
         {% endif %}
-
+         {% if member.links %}
+          <span class="portrait-name">
+            {{ member.links[0].email }}
+          </span>
+        {% endif %}
         {% if member.role or member.description %}
           <span class="portrait-role">
             {% assign type = site.data.types[member.role] %}
